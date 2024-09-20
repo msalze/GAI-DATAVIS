@@ -3,7 +3,7 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.after_request
 def after_request(response):
