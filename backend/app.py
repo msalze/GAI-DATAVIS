@@ -30,7 +30,7 @@ def upload_file():
         return jsonify({"error": str(e)}), 500
 
     # Convert the DataFrame to a simple text format
-    file_content = df.head(10).to_string()  # Show only first 10 rows for prompt
+    file_content = df.head(200).to_string()  # Show only first 10 rows for prompt
     prompt = f"Here is some demographic data in tabular form:\n\n{file_content}\n\nSummarize the key insights from this data."
 
     try:
@@ -49,7 +49,7 @@ def upload_file():
         # Return the summary and some tabular data as JSON
         return jsonify({
             "summary": summary,
-            "table": df.head(10).to_dict(orient='records')
+            "table": df.head(200).to_dict(orient='records')
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500

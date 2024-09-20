@@ -121,9 +121,10 @@ function App() {
   }
 
   const getPieChartData = data => {
-    return Object.keys(columnsOfInterest).map(colum => {
+    const newData = Object.keys(columnsOfInterest).map(colum => {
      return countOccurrences(data, colum)
     })
+    return Object.keys(newData[0]).map(key => {return {[key]: newData[0][key]}})
   }
 
   const countOccurrences = (array, key) => {
