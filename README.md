@@ -6,6 +6,9 @@ GAI-DATAVIS is a web application that provides an intuitive interface for users 
 
 ---
 
+![Sample Mockup](https://github.com/user-attachments/assets/4f1415b2-7bbd-49e5-ade8-a99a4f5bd3b3)
+
+
 ## Table of Contents
 
 1. [Datasource](#datasource)
