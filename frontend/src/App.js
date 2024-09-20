@@ -101,7 +101,8 @@ function App() {
 
   const renderChart = () => {
     const selectedData = data.table;
-    const indexesOf = Object.keys(columnsOfInterest).map(columnName => Object.keys(selectedData[0])[0].split(";").indexOf(columnName))
+    let indexesOf = Object.keys(columnsOfInterest).map(columnName => Object.keys(selectedData[0])[0].split(";").indexOf(columnName))
+    indexesOf = [...indexesOf, 8]
     const restructuredData = selectedData.map(row => {
       const columns = Object.keys(row)[0].split(";").filter((value, index) => indexesOf.includes(index));
       const values = Object.values(row)[0].split(";").filter((value, index) => indexesOf.includes(index));
@@ -131,9 +132,9 @@ function App() {
     return array.reduce((acc, obj) => {
       // Check if the key already exists in the accumulator
       if (acc[obj[key]]) {
-        acc[obj[key]] += 1; // Increment the count
+        acc[obj[key]] += parseInt(obj['anzahl']); // Increment the count
       } else {
-        acc[obj[key]] = 1; // Initialize the count
+        acc[obj[key]] = parseInt(obj['anzahl']); // Initialize the count
       }
       return acc;
     }, {});
