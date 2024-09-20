@@ -49,7 +49,7 @@ def upload_file():
         # Return the summary and some tabular data as JSON
         return jsonify({
             "summary": summary,
-            #"table": df.head(10).to_dict(orient='records')
+            "table": df.head(10).to_dict(orient='records')
         })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
